@@ -1,0 +1,35 @@
+{{title}}
+<h2 [style.color]="sty">Hello</h2>
+<app-test></app-test>
+<button (click)="onClick($event)">Click me</button>
+<p>{{msg}}</p>
+<button (click)="greet='Welcome Kavya'">Greet</button>
+<p>{{greet}}</p>
+<label>Name: </label>
+<input #fname type="text" name="fname"><br>
+<br><button (click)="fnameValidate(fname.value)">Submit</button>
+<p>{{show}}</p>
+
+<label>Message: </label>
+<input [(ngModel)]="two" type="text" name="fname"><br>
+<p>{{two}}</p>
+
+<h2 *ngIf="display1;else elseBlock">Name 1: Kavya M</h2>
+<ng-template #elseBlock>
+    <h2>Hidden name 1</h2>
+</ng-template>
+
+<h2 *ngIf="display2;then thenBlock;else elseBlock2">Name: Kavya M</h2>
+<ng-template #thenBlock>
+    <h2>Name 2 : Tony</h2>
+</ng-template>
+<ng-template #elseBlock2>
+    <h2>Hidden name 2</h2>
+</ng-template>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'" [style.color]="color">Red is selected</div>
+    <div *ngSwitchCase="'blue'" [style.color]="color">Blue is selected</div>
+    <div *ngSwitchCase="'green'" [style.color]="color">Green is selected</div>
+    <div *ngSwitchDefault>Pick valid color</div>
+</div>
